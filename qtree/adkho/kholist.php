@@ -34,9 +34,11 @@
 						<th>Tên sản phẩm</th>
 						<th>Giá sản phẩm</th>
 						<th>Số lượng nhập</th>
+						<th>Tồn kho</th>
 						<th>Danh mục sản phẩm</th>
 						<th>Nhà cung cấp</th>
 						<th>Hành động</th>
+
 
 					</tr>
 				</thead>
@@ -54,9 +56,11 @@
 						<td><?php echo $result['productName'] ?></td>
 						<td><?php echo $fm->format_currency($result['price'])." VNĐ" ?></td>
 						<td><?php echo $result['quantity'] ?></td>
+						<td></td>
 						<td><?php echo $result['catName'] ?></td>
 						<td><?php echo $result['nameNcc'] ?></td>
 						<td><a href="kho_edit.php?productid=<?php echo $result['productId'] ?>">Sửa</a><!--  || <a onclick="return confirm('Bạn có muốn xóa???')" href="?productid=<?php echo $result['productId'] ?>">Xóa</a> --></td>
+
 					</tr>
 					<?php
 					}

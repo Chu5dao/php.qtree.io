@@ -30,18 +30,18 @@
 				$check_cart = "SELECT * FROM mql_cart WHERE productId = '$id' AND sId ='$sId'";
 				$result_check = $this->db->select($check_cart);
 				if($result_check){
-					$msg = "Sản phẩm đã tồn tại";
+					$msg = "<span class='error'>Sản phẩm đã có trong giỏ hàng bạn muốn mua thêm sản phẩm này hãy vào Giỏ hàng cập nhập số lượng</span>";
 					return $msg;
 				}else{
 					$query_insert = "INSERT INTO mql_cart(productId,amount,sId,image,price,productName) VALUES('$id','$amount','$sId','$image','$price','$productName')";
 					$insert_cart = $this->db->insert($query_insert);
-					// if($insert_cart){
-					// 	$msg = "<span class='error'>Thêm sản phẩm thành công</span>";
-					// 	return $msg;
+					if($insert_cart){
+						$msg = "<span class='success'>Thêm sản phẩm thành công</span>";
+						return $msg;
 						
 					// }
-					if($insert_cart){
-						header("location:cart.php");
+					// if($insert_cart){
+					// 	header("location:cart.php");
 					}else{
 						header("location:404.php");
 					}
@@ -100,36 +100,67 @@
 			$result = $this->db->select($query);
 			return $result;
 		}
-		public function insertOrder($data,$customer_id){
 
-			$tien_ship_save = mysqli_real_escape_string($this->db->link, $data['tien_ship_save']);
-			$total_price= mysqli_real_escape_string($this->db->link, $data['tong_chi_phi2']);
+		// Cho map
+		// public function insertOrder($data,$customer_id){
+
+		// 	$tien_ship_save = mysqli_real_escape_string($this->db->link, $data['tien_ship_save']);
+		// 	$total_price= mysqli_real_escape_string($this->db->link, $data['tong_chi_phi2']);
 			
 
+		// 	$sId = session_id();
+		// 	$query = "SELECT * FROM mql_cart WHERE sId = '$sId'";
+		// 	$get_product = $this->db->select($query);
+		// 	if($get_product){
+		// 		while($result = $get_product->fetch_assoc()){
+		// 			$productID = $result['productID'];
+		// 			$productName = $result['productName'];
+		// 			$amount = $result['amount'];
+		// 			$price = $result['price'];
+		// 			$image = $result['image'];
+		// 			$customer_Id = $customer_id;
+		// 			$sub_price = $result['price'] * $amount;
+		// 			$query_order = "INSERT INTO mql_order(productId,productName,customer_Id,amount,price,image,tien_ship_save,sub_price,total_price) VALUES('$productID','$productName','$customer_Id','$amount','$price','$image','$tien_ship_save','$sub_price','$total_price')";
+
+		// 			$insert_order = $this->db->insert($query_order);
+		// 			if($insert_order){
+		// 				echo "<script> location.replace('success.php'); </script>";
+		// 			}
+		// 		}
+		// 	}
+		// 	else{
+		// 		echo "<script> location.replace('404.php'); </script>";
+
+		// 	}
+		// }
+
+		public function insertOrder($data,$customer_id){
 			$sId = session_id();
 			$query = "SELECT * FROM mql_cart WHERE sId = '$sId'";
 			$get_product = $this->db->select($query);
-			if($get_product && $tien_ship_save){
+			if($get_product){
 				while($result = $get_product->fetch_assoc()){
-					$productID = $result['productID'];
+					$productID = $result['productID'];	
 					$productName = $result['productName'];
 					$amount = $result['amount'];
 					$price = $result['price'];
 					$image = $result['image'];
 					$customer_Id = $customer_id;
 					$sub_price = $result['price'] * $amount;
-					$query_order = "INSERT INTO mql_order(productId,productName,customer_Id,amount,price,image,tien_ship_save,sub_price,total_price) VALUES('$productID','$productName','$customer_Id','$amount','$price','$image','$tien_ship_save','$sub_price','$total_price')";
+					$total_price = $sub_price + ($sub_price * 0.1);
+					$tien_ship_save = $result['tien_ship_save'];
+					$query_order = "INSERT INTO mql_order(productId,productName,customer_Id,amount,price,image,sub_price,total_price,tien_ship_save) VALUES('$productID','$productName','$customer_Id','$amount','$price','$image','$sub_price','$total_price','$tien_ship_save')";
 
 					$insert_order = $this->db->insert($query_order);
        				if($insert_order){
-       					header('Location:success.php');
+						echo "<script> location.replace('success.php'); </script>";
        				}
 				}
 			}else{
-				header("location:404.php");
-
+				echo "<script> location.replace('404.php'); </script>";
 			}
-		}
+	}
+
 		public function get_tongchiphi($customer_id){
 			$query = "SELECT * FROM mql_order WHERE customer_Id = '$customer_id' ";
 			$result = $this->db->select($query);

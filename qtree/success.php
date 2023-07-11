@@ -2,18 +2,14 @@
 	include 'inc/header.php';
 	
 ?>
+
 <?php
-
-	if(isset($_GET['orderid']) && $_GET['orderid']=='order'){
-       $customer_id = Session::get('customer_id');
-       $insertOrder = $ct->insertOrder($customer_id);
-       $delCart = $ct->del_all_data_cart();
-       header('Location:success.php');
+    $login_check = Session::get('customer_login');
+    if($login_check == false){
+      header('Location:login.php');
     }
-    
-
- 
 ?>
+
 <style type="text/css">
 	.box_left {
     width: 50%;
@@ -44,7 +40,7 @@
 </style>
 	<div id="breadcrumb" class="hoc clear" > 
     <!-- ################################################################################################ -->
-    <h6 class="heading">CART</h6>
+    <h6 class="heading">Payment</h6>
     <ul>
       <li><a href="#">Trang chủ</a></li>
       <li><a href="#">Giỏ hàng</a></li>

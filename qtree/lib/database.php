@@ -24,6 +24,7 @@ private function connectDB(){
      $this->error ="Connection fail".$this->link->connect_error;
     return false;
    }
+    // mysqli_set_charset($this->link,"utf8");
  }
  
 // Select or Read data

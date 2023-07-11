@@ -4,7 +4,7 @@
 <?php
     $login_check = Session::get('customer_login');
     if($login_check){
-    	header('Location:order.php');
+    	header('Location:welcome.php');
     }
 ?>
 <?php
@@ -19,7 +19,7 @@
 ?>
 	<div id="breadcrumb" class="hoc clear" > 
     <!-- ################################################################################################ -->
-    <h6 class="heading">LOGIN</h6>
+    <h6 class="heading">Sign in - Sign up</h6>
     <ul>
       <li><a href="#">Trang chủ</a></li>
       <li><a href="#">Đăng nhập - Đăng ký</a></li>

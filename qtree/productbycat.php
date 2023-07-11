@@ -3,6 +3,9 @@
 ?>
 <?php
     $cat = new Category();
+    if (!isset($_GET['catid'])){
+      echo "<script>window.location = '404.php';</script>";
+    }
     if (!isset($_GET['catid']) && $_GET('catid') == NULL){
         echo "<script>window.location = '404.php';</script>";
     }else{
@@ -16,7 +19,7 @@
 ?>
 	<div id="breadcrumb" class="hoc clear" > 
     <!-- ################################################################################################ -->
-    <h6 class="heading">Products</h6>
+    <h6 class="heading">Category</h6>
     <ul>
       <li><a href="#">Trang chủ</a></li>
       <li><a href="#">Cửa hàng</a></li>

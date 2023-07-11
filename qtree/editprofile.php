@@ -34,10 +34,9 @@
 
 	<div id="breadcrumb" class="hoc clear" > 
     <!-- ################################################################################################ -->
-    <h6 class="heading">Products</h6>
+    <h6 class="heading">Editprofile</h6>
     <ul>
       <li><a href="#">Trang chủ</a></li>
-      <li><a href="#">Cửa hàng</a></li>
       <li><a href="#">Hồ sơ</a></li>
       <li><a href="#">Chỉnh sửa thông tin cá nhân</a></li>
     </ul>

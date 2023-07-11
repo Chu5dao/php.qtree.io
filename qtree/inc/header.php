@@ -31,11 +31,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="layout/styles/layoutt.css" rel="stylesheet" type="text/css" media="all">
 
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <!-- css -->
     <link rel="stylesheet" type="text/css" href="layout/styles/css/stylee.css">
     <link rel="stylesheet" type="text/css" href="layout/styles/css/menu.css">
-
-    
-
 
   </head>
 <body id="top">

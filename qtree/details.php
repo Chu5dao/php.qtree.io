@@ -15,10 +15,8 @@
         
     }
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
-
         $amount = $_POST['amount'];
         $insertCart = $ct->add_to_cart($amount, $id);
-        
     }
     if(isset($_POST['binhluan_submit'])){
     	$binhluan_insert = $cs->insert_binhluan();
@@ -86,12 +84,7 @@
 							</form>
 							<?php
 								if(isset($insertCart)){
-								// echo '<span class="error">Sản phẩm đã có trong giỏ hàng <br>
-								// bạn muốn mua thêm sản phẩm này<br>
-								// hãy vào Giỏ hàng cập nhập số lượng</span>';
-									echo "<script>
-										alert ('Sản phẩm đã có trong giỏ hàng bạn muốn mua thêm sản phẩm này hãy vào Giỏ hàng cập nhập số lượng');
-									</script>";
+									echo $insertCart;
 								}
 							?>
 						</div>

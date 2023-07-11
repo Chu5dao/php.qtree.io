@@ -28,7 +28,7 @@
                 <li><a class="menuitem" >Liên hệ</a>
                     <ul class="submenu">
                         <li><a href="lienhe.php">Thư góp ý</a></li>
-                        <li><a href="testship.php">Map</a></li>
+                        <!-- <li><a href="testship.php">Map</a></li> -->
                     </ul>
                 </li>
             </ul>

@@ -17,7 +17,7 @@
 ?>
 <div class="grid_10">
     <div class="box round first grid">
-        <h2>Danh sách sản phẩm ở Store</h2>
+        <h2>Danh sách sản phẩm Kho đã nhập</h2>
         <br>
 			<?php
         	if(isset($delpro)){
@@ -58,7 +58,7 @@
 						<td><?php echo $result['quantity'] ?></td>
 						<td><?php echo $result['catName'] ?></td>
 						<td><?php echo $result['nameNcc'] ?></td>
-						<td><?php $tong += $result['price']; echo  $fm->format_currency($tong). " VNĐ"?></td>
+						<td><?php $tong = $result['price'] * $result['quantity']; echo  $fm->format_currency($tong). " VNĐ"?></td>
 						<td><a onclick="return confirm('Bạn có muốn xóa???')" href="?productid=<?php echo $result['productId'] ?>">Xóa</a></td>
 					</tr>
 					<?php

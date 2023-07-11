@@ -62,7 +62,7 @@
 					Session::set('customer_login', true);
 					Session::set('customer_id', $VALUES['id']);
 					Session::set('customer_name', $VALUES['name']);
-					header('Location:order.php');
+					header('Location:welcome.php');
 				}else{
 					$alert = "<span class='error'>Email hoặc Password không đúng</span>";
 					return $alert;
@@ -129,7 +129,17 @@
 			return $result;
 		}
 		public function get_show_cmt(){
-			$query = "SELECT * FROM mql_cmt ORDER BY date_cmt";
+			$pro_id = $_GET['proid'];
+			// $getname = "SELECT productName FROM mql_product WHERE pro_id='$pro_id'";
+			// $truyvan = mysqli_query($conn, $getname);
+			// $prd_name =mysqli_fetch_array($truyvan)['pro_name'];
+
+			$query = "SELECT ten_cmt, date_cmt, cmt, status
+			FROM mql_cmt INNER JOIN mql_product
+			ON mql_cmt.product_id = mql_product.productId
+			WHERE product_id = '$pro_id'
+			ORDER BY date_cmt desc"; 
+			// thêm DESC sx thứ tự  hiển thị
 			$result = $this->db->select($query);
 			return $result;
 		}

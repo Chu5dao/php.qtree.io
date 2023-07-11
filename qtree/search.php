@@ -4,9 +4,8 @@
 
 	<div id="breadcrumb" class="hoc clear" > 
     <!-- ################################################################################################ -->
-    <h6 class="heading">Products</h6>
+    <h6 class="heading">Search</h6>
     <ul>
-      <li><a href="#">Trang chủ</a></li>
       <li><a href="#">Tìm kiếm</a></li>
       <?php
       if ($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -38,7 +37,10 @@
                 while ($result = $search_product->fetch_assoc()){
             ?>
             <li class="grid_1_of_4 images_1_of_4"  style="text-align: center; list-style-type: none;">
-              <figure  style="display: inline-table; height: 400px;"><a class="imgover" href="details.php?proid=<?php echo $result['productId'] ?>"><img src="admin/uploads/<?php echo $result['image'] ?>" alt="" style="height: 270px;"></a>
+              <figure  style="display: inline-table; height: 400px;">
+                <a class="imgover" href="details.php?proid=<?php echo $result['productId'] ?>">
+                  <img src="adbanhang/uploads/<?php echo $result['image'] ?>" alt="" style="height: 270px;">
+                </a>
                 <figcaption>
                   <h5 style="font-family: 'Monda', sans-serif; height: 60px;"><?php echo $result['productName'] ?></h5>
                   <p><span class="price"><?php echo $fm->format_currency($result['price'])." VND" ?></span></p>
@@ -48,7 +50,7 @@
             <?php
               }
               }else{
-                echo '<span class="error"> Danh mục này hiện tại sản phẩm đã hết!!!</span>';
+                echo '<span class="error"> Danh mục này hiện tại sản phẩm đã hết hoặc không tồn tại !!!</span>';
               }
             ?>
           </ul>

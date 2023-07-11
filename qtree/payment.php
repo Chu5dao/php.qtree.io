@@ -53,7 +53,7 @@
 
 	<div id="breadcrumb" class="hoc clear" > 
     <!-- ################################################################################################ -->
-    <h6 class="heading">CART</h6>
+    <h6 class="heading">Payment</h6>
     <ul>
       <li><a href="#">Trang chủ</a></li>
       <li><a href="#">Thanh toán</a></li>

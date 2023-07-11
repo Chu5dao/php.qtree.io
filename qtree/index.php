@@ -118,7 +118,7 @@
               <li class="one_quarter" style="display: inline-table;">
                 <figure><a class="imgover" href="#"><img src="images/demo/Loc.jpg" alt=""></a>
                   <figcaption><strong>Hữu Lộc</strong> <em>Thành viên</em></figcaption>
-                </figure>
+                </figure>   
               </li>
             </ul>
           </div>

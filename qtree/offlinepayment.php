@@ -1,18 +1,21 @@
 <?php 
 	include 'inc/header.php';
-	
 ?>
+<?php
+    $login_check = Session::get('customer_login');
+    if($login_check == false){
+		header('Location:login.php');
+    }
+?>
+
 <?php
 
 	if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
-       $customer_id = Session::get('customer_id');
-       $insertOrder = $ct->insertOrder($_POST, $customer_id);
-       $delCart = $ct->del_all_data_cart();
-
+		$customer_id = Session::get('customer_id');
+		$insertOrder = $ct->insertOrder($_POST, $customer_id);
+		$delCart = $ct->del_all_data_cart();
     }
 
-
- 
 ?>
 <style type="text/css">
 	.box_left {
@@ -33,11 +36,12 @@
     color: #fff;
     font-size: 21px;
     border-radius: 4px;
+	cursor: pointer;
 }
 </style>
 	<div id="breadcrumb" class="hoc clear" > 
     <!-- ################################################################################################ -->
-    <h6 class="heading">CART</h6>
+    <h6 class="heading">Payment Offline</h6>
     <ul>
       <li><a href="#">Trang chủ</a></li>
       <li><a href="#">Giỏ hàng</a></li>
@@ -69,7 +73,7 @@
 				    				font-size:22px;
 									width: 80%;
 									margin-top: 10px;">Thông tin khách hàng</h3>
-						<center><p class="error">Nhân viên của Store sẽ giao hàng theo địa chỉ bên dưới quý khác hãy cập nhập thông tin nếu cần thiết và vui lòng nhập địa chỉ bên bản đồ để tính phí SHIP trực tuyến</p></center>
+						<!-- <center><p class="error">Nhân viên của Store sẽ giao hàng theo địa chỉ bên dưới quý khác hãy cập nhập thông tin nếu cần thiết và vui lòng nhập địa chỉ bên bản đồ để tính phí SHIP trực tuyến</p></center> -->
 		    			<table class="tblone" style="box-shadow:0px 0px 20px rgba(0 0 0 / 10%); color: #000;" >
 							<?php
 							$id=Session::get('customer_id');
@@ -189,19 +193,35 @@
 											</td>
 										</tr>
 										<tr>
-											<th>Phí giao hàng :
-											<br><a id="tinhphi"  style='color: #000; display: inline; background-color: rgb(239, 239, 239); cursor: pointer;' type='submit' name='nutguitt'>Tính phí giao hàng</a> </th>
-											<td id="kc" name="kc"> </td>
+											<!-- BEN MAP -->
+											<!-- <th>Phí giao hàng :
+											<br><a id="tinhphi"  style='color: #000; display: inline; background-color: rgb(239, 239, 239); cursor: pointer;' type='submit' name='nutguitt'>Tính phí giao hàng</a> </th> 
+											<td id="kc" name="kc"> </td> -->
 											
-										</tr>
+											<!-- ----------- -->
+											<th>VAT: </th>
+											<td id="kc" name="kc"> 10% (<?php
+											echo $fm->format_currency($vat = $tong * 0.1)." VNĐ";
+											?>)</td>
+											
+										</tr>	
 										<tr>
+											<!-- <th>Tổng chi phí : </th>
+											<td><span id="tong_chi_phi">
+											</span></td> -->
 											<th>Tổng chi phí : </th>
-											<td><span id="tong_chi_phi"></span></td>
+											<td><span id="tong_chi_phi2">
+												<?php
+													$vat = $tong * 0.1;
+													$tong_chi_phi = $tong + $vat;
+													echo $fm->format_currency($tong_chi_phi)." VNĐ";
+												?>
+											</span></td>
 										</tr>
 								   </table>
 								   
 								</div>
-								<div><p ><br>Nhập địa điểm vận chuyển trên bản đồ <a href="">để tính phí giao hàng.</a></p></div>
+								<!-- <div><p ><br>Nhập địa điểm vận chuyển trên bản đồ <a href="">để tính phí giao hàng.</a></p></div> -->
 								<?php
 									}else{
 										echo '<p class="error" href="store.php">Giỏ hàng của bạn trống, hãy chọn mua sản phẩm tại cửa hàng !!!</p>';
@@ -214,8 +234,8 @@
 
     			</div>
 	    		<div class="box_right">
-	    		<center><p class="error">Vui lòng nhập địa chỉ chi nhánh cửa hàng và địa chỉ giao hàng ở ô bên dưới <br>hoặc bạn có thể click vào bản đồ</p></center>
-				<?php include 'inc/map.php'?>
+	    		<!-- <center><p class="error">Vui lòng nhập địa chỉ chi nhánh cửa hàng và địa chỉ giao hàng ở ô bên dưới <br>hoặc bạn có thể click vào bản đồ</p></center>
+				<?php include 'inc/map.php'?> -->
 	    			
 				    <br>
 				    <div class="company_address">
@@ -243,7 +263,7 @@
  	</div>
 	<br>
 
-<input type="hidden" id="kc2" name="kc2" value="">
+<!-- <input type="hidden" id="kc2" name="kc2" value="">
 <input type="hidden" id="tien_ship_save" name="tien_ship_save" value="">
 <input type="hidden" id="tong_chi_phi2" name="tong_chi_phi2" value="">
 
@@ -252,7 +272,7 @@
 	<script type="text/javascript">
     	<?php
   		// include_once 'helpers/format.php';
-    // 	$fm = new Format();
+    	// $fm = new Format();
     	?>
 
 	   $(document).ready(function(){ 
@@ -296,15 +316,17 @@
 	        	$('#tong_chi_phi').html(price_total  + " VNĐ");
 	        	$('#tong_chi_phi2').val(price_total);
 
-	        	
+
 			}
 
 
 	      
 	 		});
     	});
-	</script>
+	</script> -->
 <center><button type="submit" name="submit" class="a_order">Order Now</button></center><br>
+<!-- <center><a href="?oderid=order" class="a_order">Order Now</a></center><br> -->
+
 
 </form>
 	

@@ -102,8 +102,9 @@
 						?>
 					</tbody>
 				</table>
-				
-                    
+
+				<hr>
+
                     <table class="data display datatable" id="example">
 					<thead>
 						<tr>

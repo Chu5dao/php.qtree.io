@@ -51,3 +51,10 @@ define("DB_NAME", "qtree"); //Tên DB của bạn//
     - QL Sản phẩm - Thu chi
     - QL Liên hệ
     - QL Nhân viên
+    
+Thẻ test:
+Ngân hàng	NCB
+Số thẻ	9704198526191432198
+Tên chủ thẻ	NGUYEN VAN A
+Ngày phát hành	07/15
+Mật khẩu OTP	123456

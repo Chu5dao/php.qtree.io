@@ -81,7 +81,7 @@
 		    		<div class="wrapper_method">
 			    		<h3 class="payment">Choose your method payment</h3>
 			    		<a href="offlinepayment.php">Offline Payment</a>
-			    		<a href="onlinepayment.php">Online Payment</a><br><br><br>
+			    		<a href="donhangthanhtoanonl.php">Online Payment</a><br><br><br>
 			    		<a style="background:grey" href="cart.php"> << Quay về</a>
 			    	</div>
 	    		</div>

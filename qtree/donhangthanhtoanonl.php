@@ -30,6 +30,12 @@
     border-radius: 4px;
 	cursor: pointer;
     }
+	.shopping{
+		display: flex;
+	}
+	.shopping form{
+		margin: 8px;
+	}
 </style>
 
 	<div id="breadcrumb" class="hoc clear" > 
@@ -37,7 +43,7 @@
     <h6 class="heading">CART</h6>
     <ul>
       <li><a href="#">Trang chủ</a></li>
-      <li><a href="#">Thanh toan onl</a></li>
+      <li><a href="#">Thanh toán online</a></li>
     </ul>
     <!-- ################################################################################################ -->
   </div>
@@ -47,17 +53,18 @@
     <div class="content">
 			<div class="cartpage" >
                 <?php
-                    if(isset($_GET['congthanhtoan'])=='vnpay'){
+                    // if(isset($_GET['congthanhtoan'])=='vnpay'){
                 ?>
 			    	<header style="font-family: Verdana, Geneva, sans-serif;
 			    				color: #F1832A;
 			    				font-size:22px;
 								margin: 20px auto 20px auto;
 								width: 80%;">
-					Thanh toán bằng VNPAY
+					<!-- Thanh toán bằng VNPAY -->
+					Cổng thanh toán online
 					</header>
                 <?php
-                }
+                // }
                 ?>
 					<?php
 					if(isset($update_amount_cart)){
@@ -123,9 +130,9 @@
 		                		$check_cart = $ct->check_cart();
 		                		  if($check_cart){
 		                		?>
-								<div  style="width: 40%;">
+								<div  >
 									
-									<table style="text-align:left; color: #373737; top: 0px;">
+									<table style="text-align:left; color: #373737; top: 0px; width: 40%;">
 										<tr>
 											<th>Tổng : </th>
 											<td><?php
@@ -152,26 +159,52 @@
 										</tr>
 								   </table>
 
-						</div>
-								   
-								</div>
-								<div>
+								   <div>
 								<div class="shopping">
-                                    <br>
                                     <?php
-                                        if(isset($_GET['congthanhtoan'])=='vnpay'){
+                                        // if(isset($_GET['congthanhtoan'])=='vnpay'){
                                     ?>
-									    <center><form action="congthanhtoan.php" method="POST">
-                                            <input type="hidden" name="total_congthanhtoan" value="<?php 
-                                            echo $tongcuoi ?>">
-                                            <button 
-                                            id="redirect" 
-                                            class="a_order"
-                                            name="redirect"
-                                            >Thanh toán VNPAY</button>
-                                        </form></center>
+											<form action="congthanhtoanVNPay.php" method="POST">
+												<input type="hidden" name="total_congthanhtoan" value="<?php 
+												echo $tongcuoi ?>">
+												<button 
+												id="redirect" 
+												class="a_order"
+												name="redirect"
+												style="background-color: #005baa;"
+												>Thanh toán VNPAY</button>
+                                        	</form>
+											<form action="congthanhtoanMomo.php" method="POST">
+												<input type="hidden" name="total_congthanhtoan" value="<?php 
+												echo $tongcuoi ?>">
+												<button 
+												id="redirect" 
+												class="a_order"
+												name="redirect"
+												style="background-color: #aa006a;"
+												>Thanh toán QR MOMO</button>
+                                        	</form>
+											<form action="congthanhtoanMomo.php" method="POST">
+												<input type="hidden" name="total_congthanhtoan" value="<?php 
+												echo $tongcuoi ?>">
+												<button 
+												id="redirect" 
+												class="a_order"
+												name="redirect"
+												style="background-color: #aa006a;"
+												>Thanh toán MOMO ATM</button>
+                                        	</form>
+											<form action="congthanhtoanMomo.php" method="POST">
+												<input type="hidden" name="total_congthanhtoan" value="<?php 
+												echo $tongcuoi ?>">
+												<button 
+												id="redirect" 
+												class="a_order"
+												name="redirect"
+												>Thanh toán ONEPAY</button>
+                                        	</form>
                                     <?php
-                                    }
+                                    // }
                                     ?>
 
 									<?php
@@ -182,6 +215,9 @@
 									
 								</div>
 							</div>
+						</div>
+								</div>
+								
 							
 
 					</div>

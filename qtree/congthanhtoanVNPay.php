@@ -1,9 +1,11 @@
 <?php
+
+//cổng thanh toán VNPay
 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-$vnp_Returnurl = "https://quang123.com/php.qtree.io/qtree/vnpay_php/vnpay_return.php";
+$vnp_Returnurl = "https://quang123.com/php.qtree.io/qtree/order_details.php";
 $vnp_apiUrl = "http://sandbox.vnpayment.vn/merchant_webapi/merchant.html";
 $apiUrl = "https://sandbox.vnpayment.vn/merchant_webapi/api/transaction";
 //Config input format
@@ -108,3 +110,6 @@ $returnData = array('code' => '00'
         echo json_encode($returnData);
     }
 	// vui lòng tham khảo thêm tại code demo
+
+
+

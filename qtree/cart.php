@@ -133,9 +133,7 @@
 								   </table> -->
 
 						</div>
-								   
-								</div>
-								<div>
+						<div>
 								<div class="shopping"  style="display: grid;
 															grid-template-columns: repeat(1, 25% 19% 11% 20%);">
 									<div class="clear"></div>
@@ -151,6 +149,8 @@
 									<div class="clear"></div>
 								</div>
 							</div>
+								</div>
+								
 							
 
 					</div>

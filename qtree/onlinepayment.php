@@ -74,7 +74,7 @@
 				font-size:22px;
 				margin: auto 20px;
 				width: 80%;">
-				<h3 style="font-family: Verdana, Geneva, sans-serif;">Thanh toán</h3>
+				<h3 style="font-family: Verdana, Geneva, sans-serif;">Thanh toán online</h3>
 			</div>
 	    	<div class="section group">
 
@@ -82,15 +82,18 @@
 
 		    		<div class="clear"></div>
 		    		<div class="wrapper_method">
-			    		<h3 class="payment">Choose your method payment</h3>
-                        <form action="donhangthanhtoanonl.php?congthanhtoan=vnpay" method="POST">
+			    		<h3 class="payment">Choose your method online payment</h3>
+                        <!-- <form action="donhangthanhtoanonl.php?congthanhtoan=vnpay" method="POST">
                             <button
 							id="redirect"
 							class="btn-success"
 							name="redirect">Thanh toán VNPAY</button>
-                        </form>
-                        <br><br>
-			    		<a style="background:grey" href="cart.php"> << Quay về</a>
+                        </form> -->
+
+						<a href="donhangthanhtoanonl.php">Thanh toán VNPAY</a>
+			    		<a href="donhangthanhtoanonl.php">Thanh toán MOMO</a>
+                        <br><br><br>
+			    		<a style="background:grey" href="payment.php"> << Quay về</a>
 			    	</div>
 	    		</div>
 			</div>

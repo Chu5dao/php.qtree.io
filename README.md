@@ -1,6 +1,5 @@
 # DỰ ÁN THƯƠNG MẠI ĐIỆN TỬ: WEB BÁN CÂY CẢNH
-Đây là một dự án được thực hiện trong phạm vi đồ án ở trường học còn rất nhiều sai sót nhỏ và không thực sự clean code
-Dự án vẫn còn đang phát triển
+Đây là một dự án được thực hiện trong phạm vi đồ án ở trường học còn rất nhiều sai sót nhỏ và không thực sự clean code. Lưu ý: Dự án vẫn còn đang phát triển
 - Các công nghệ được sử dụng trong dự án này:
     + PHP thuần + mô hình OOP
     + MySQL

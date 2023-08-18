@@ -14,7 +14,7 @@ Demo web
 
 Mô hình dữ liệu quan hệ
 
-![Img_SQL](https://user-images.githubusercontent.com/132061931/243055036-c7891f06-a01c-44af-a4df-f365f6de8527.pngg)
+![Img_SQL](https://user-images.githubusercontent.com/132061931/243055036-c7891f06-a01c-44af-a4df-f365f6de8527.png)
 
 # CÀI ĐẶT CẤU HÌNH KẾT NỐI
 File config.php
